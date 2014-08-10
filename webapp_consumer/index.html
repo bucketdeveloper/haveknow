@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 		<link rel="stylesheet" href="styles/font-awesome-4.1.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="styles/jquery-ui.css">
     </head>
     <body>
         <!-- <p id="starter">Rescue <span id="plus">+</span></p>
@@ -26,11 +27,13 @@
 			</div>
 		</div>
 		<div class="user_menu">
-		  <span class="menu_option">Have/Knows</span>
-		  <span class="menu_option">Contacts</span>
-		  <span class="menu_option">Log Out</span>
+		  <span class="menu_option summary_option hidden_option">Summary</span>
+		  <span class="menu_option haveknows_option">Have/Knows</span>
+		  <span class="menu_option wallet_option">Wallet</span>
+		  <span class="menu_option contacts_option">Contacts</span>
+		  <span class="menu_option logout_option">Log Out</span>
 		</div>
-		<div class="summary_body">
+		<div class="summary_body all_body">
 			<div class="tile">
 				<span class="tile_title">Summary</span>
 				<table class="summary_table">
@@ -49,20 +52,72 @@
 					<span class="hk_payoutValue">$200</span>
 					<span class="hk_payoutDecimal">.00</span>
 				</div>
-				<span class="hk_button"><i class="fa fa-pencil"></i>Edit</span>
+				<span class="hk_button take_to_payload"><i class="fa fa-pencil"></i>Edit</span>
 			</div>
 			<div class="tile">
 				<span class="tile_title">Rescues</span>
+				<div class="rescue_container">
+					<div class="rescue">
+						<span class="fa fa-rocket"></span>
+						<span class="rescue_vendor">Walgreens</span>
+						<span class="rescue_time">7/23 8:53 pm</span>
+						<span class="rescue_payout">150.00</span>
+						<span class="rescue_vendor_Address">34, Highland Ave, Medford, MA 02155</span>
+					</div>
+					<div class="rescue">
+						<span class="fa fa-rocket"></span>
+						<span class="rescue_vendor">CVS</span>
+						<span class="rescue_time">8/5 1:53 am</span>
+						<span class="rescue_payout">100.00</span>
+						<span class="rescue_vendor_Address">1 South Station, Boston 02110</span>
+					</div>
+				</div>
 			</div>
 			<div class="tile">
 				<span class="tile_title">Contacts</span>
+				<div class="contacts_container">
+					<div class="contacts_name_container">
+						<span class="contact_title">Contacts</span>
+						<div class="contactNameCont">
+						<div class="contact">
+							<span class="fa fa-user"></span>
+							<span class="contact_name">Eric Cartman</span>
+						</div>
+						<div class="contact">
+							<span class="fa fa-user"></span>
+							<span class="contact_name">Peter Griffin</span>
+						</div>
+						<div class="contact">
+							<span class="fa fa-user"></span>
+							<span class="contact_name">Marge Simpson</span>
+						</div>
+						</div>
+					</div>
+					<div class="contacts_mode_container">
+						<span class="contact_title">Modes Enabled</span>
+					</div>
+				</div>
 			</div>
 		</div>
-		
+		<div class="wallet_body all_body">
+			<div class="wallet_tile">
+				<span class="tile_title">Wallet</span>
+				<div class="hk_payout">
+					<i class="fa fa-money"></i>
+					<span class="hk_payoutValue">$200</span>
+					<span class="hk_payoutDecimal">.00</span>
+				</div>
+				<span class="wallet_title">Set your payout:</span>
+				<div class="hk_slider"></div>
+				<span class="hk_slider_low">0</span>
+				<span class="hk_slider_high">0</span>
+			</div>	
+		</div>
 		
 		
        <!--  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+		<script src="scripts/vendor/jquery-ui.min.js"></script>
         <script src="scripts/app.js" type="text/javascript"></script>
 		<script type="text/javascript">
             $(window).load(function () {
