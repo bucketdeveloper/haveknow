@@ -32,15 +32,15 @@ var App = (function (App, $) {
         "a":"Grimauld Place"
     },
     {
-        "q":"Which of the following pitcures shows your brother when he was a kid?",
-        "a":"images/brother.png"
+        "q":"What was the name of your favorite Kindergarten teacher?",
+        "a":"Ms. Brown"
     },
     {
         "q":"What is your favorite uncle's name?",
         "a":"Uncle Mats"
     },
     {
-        "q":"Who is your favorite fictional Character",
+        "q":"Who is your favorite fictional Character?",
         "a":"Tyrion Lannister"
     }]
     App.init = function () {
@@ -70,6 +70,7 @@ var App = (function (App, $) {
 	App.setWallet = function(){
 		$(".all_body").hide()
 		$(".wallet_body").fadeIn()
+        $(window).scrollTop(0)
 		$(".menu_option.hidden_option").removeClass("hidden_option")
 		$(".wallet_option").addClass("hidden_option")
 		App.setButtons()
@@ -89,6 +90,7 @@ var App = (function (App, $) {
 	App.setSummary = function(){
 		$(".all_body").hide()
 		$(".summary_body").fadeIn()
+        $(window).scrollTop(0)
 		App.displayPayout()
 		setTimeout(function(){App.displayModes($("contact_name").eq(0).html())},300)
 		$(".hidden_option").removeClass("hidden_option")
@@ -147,6 +149,7 @@ var App = (function (App, $) {
     App.setHaveKnow = function(){
         $(".all_body").hide()
         $(".haveKnow_body").fadeIn()
+        $(window).scrollTop(0)
         $(".menu_option.hidden_option").removeClass("hidden_option")
 		$(".haveknows_option").addClass("hidden_option")
         var html = ""
@@ -181,11 +184,44 @@ var App = (function (App, $) {
     App.editKnows = function(){
         $(".all_body").hide()
         $(".know_body").fadeIn()
+        $(window).scrollTop(0)
+        var html = ""
+        $(".know_body .knowCont").html("")
+        $.each(App.haveKnowObject, function(i){
+            html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+5</span></div>'
+            html += '<div class="know answer"><span class="knowIcon fa">A</span><span class="knowText">'+App.haveKnowObject[i].a+'</span></div>'
+            $(".know_body .knowCont").append(html)
+        })
+        $.each($(".know_body .knowText"), function(i){
+            if($(".know_body .knowText").eq(i).height()<$(".know_body .know").height()) $(".know_body .knowText").eq(i).css("top", ($(".know_body .know").height()-$(".know_body .knowText").eq(i).height())/2)
+        })
+        $(window).resize(function(){
+            $.each($(".know_body .knowText"), function(i){
+                $(".know_body .knowText").eq(i).css("top", 0)
+                if($(".know_body .knowText").eq(i).height()<$(".know_body .know").height()) $(".know_body .knowText").eq(i).css("top", ($(".know_body .know").height()-$(".know_body .knowText").eq(i).height())/2)
+            })
+        })
+        $(".add_know").off("click.addKnow").on("click.addKnow", function(e){
+            e.preventDefault()
+            App.haveKnowObject.push({"q":$(".know_question").val(), "a":$(".know_answer").val()})
+            $(".know_question").val("")
+            $(".know_answer").val("")
+            var html = ""
+            $(".know_body .knowCont").html("")
+            $.each(App.haveKnowObject, function(i){
+                html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+5</span></div>'
+                html += '<div class="know answer"><span class="knowIcon fa">A</span><span class="knowText">'+App.haveKnowObject[i].a+'</span></div>'
+                $(".know_body .knowCont").append(html)
+            })
+            $.each($(".know_body .knowText"), function(i){
+                if($(".know_body .knowText").eq(i).height()<$(".know_body .know").height()) $(".know_body .knowText").eq(i).css("top", ($(".know_body .know").height()-$(".know_body .knowText").eq(i).height())/2)
+            })
+        })
     }
     App.updateDial = function(){
         var score = 0
         var color = "#e54d42"
-        $.each($(".points"), function(i){
+        $.each($(".haveKnow_body .points"), function(i){
             score += parseInt($(".points").eq(i).html().split("+")[1])    
         })
         if(score>=30) color = "#ffc140"

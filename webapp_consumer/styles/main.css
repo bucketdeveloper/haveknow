@@ -91,7 +91,7 @@ body{
 }
 .hk_header.scrolled{
 	height:50px;
-	background: rgba(241, 241, 241, 0.66);
+	background: #0072d0;
 }
 .hk_header.scrolled .user_img{
 	height:30px;
@@ -451,7 +451,7 @@ body{
     width: 100%;
     display:none;
 }
-.haveCont, .knowCont, .pointsCont {
+.haveCont, .knowCont, .pointsCont, .knowAdd {
     width: 100%;
     height: calc(100% - 40px);
     border-radius: 0px 0px 5px 5px;
@@ -573,6 +573,91 @@ body{
 .edit:hover {
     cursor:pointer;
     color:#0072d0;
+}
+.know_body{
+    position: relative;
+	margin-top: 120px;
+	width: 100%;
+    display:none;
+}
+.know_body .tile{
+    min-height: 300px;
+    height: auto;
+}
+.know.question{
+    width: calc(100% - 4px);
+    min-height: 50px;
+    margin: 0 auto;
+    margin-top: 2px;
+    background: #ddd;
+    border-radius: 3px 3px 0px 0px;
+    display: inline-block;
+    position: relative;
+    left: 2px;
+    margin-bottom: -6px;
+    height: auto;
+}
+.know.answer{
+    width: calc(100% - 4px);
+    min-height: 50px;
+    margin: 0 auto;
+    margin-top: 2px;
+    background: #ddd;
+    border-radius: 0px 0px 3px 3px;
+    display: inline-block;
+    position: relative;
+    left: 2px;
+    height: auto;
+    margin-bottom: -4px;
+}
+.know.question .fa.knowIcon{
+    border-radius: 3px 0px 0px 0px;
+    float: left;
+}
+.know.answer .fa.knowIcon{
+    border-radius: 0px 0px 0px 3px;
+    float: left;
+    background:#1abc9c;
+    font-family: chunk;
+}
+.know.answer .knowText{
+    font-weight:bold;
+    color: #0072d0;
+}
+.know_item {
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+.know_label {
+    display: inline-block;
+    width: 30%;
+    height: 40px;
+    font-size: 18px;
+    float: left;
+}
+.know_value {
+    width: 70%;
+    display: inline-block;
+    float: right;
+    text-align: left;
+}
+.know_input {
+    display: inline-block;
+    width: 90%;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    font-family:NewFont;
+}
+.know_body .hk_button {
+    right: 6.5%;
+    background: #0072d0;
+}
+.know_body .hk_button:hover {
+    background: #bdbdbd;
 }
 #plus {
 
