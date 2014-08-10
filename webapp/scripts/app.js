@@ -179,8 +179,6 @@ var App = (function (App, $) {
 	App.togglemask = function(){
 		var type = $("#know_answer").attr("type")
 		var newtype = type == "password" ? "text" : "password"
-		var mask = type == "password" ? "Mask" : "Unmask"
-		$("#togglemasklabel").text(mask)
 		$("#know_answer").attr("type", newtype)
 	}
 	
