@@ -135,7 +135,7 @@ var App = (function (App, $) {
 			service.call("GET", {}, "transfer", function(json){
 				$("#spinner").hide()
 				App.global.transferjson = json
-				var html = "<span class='transferid'>Your Paypal id is:<br /><br />" + App.global.transferjson.response + "</span>"
+				var html = "<span class='transferid'>Processing:<br /><br />" + App.global.transferjson.response + "</span>"
 				$(".result").html(html)
 				$(".result-after").html("")
 				
@@ -162,7 +162,7 @@ var App = (function (App, $) {
 		var html_after = ""
 		var html_success = "<span class='emergency'>Your emergency contact list has been notified</span><br />"
 		html += "You've got cash!<br />"
-		html_after += "<span class='huge center' id='cash'>$" + App.global.user.amount + "</span>" + '<input type="button" value="RETURN" id="returnbtn" class="pull_right button_color button answer_go" onclick="App.reset()" />'
+		html_after += "<span class='huge center' id='cash'><span class='dollar'>$</span>" + App.global.user.amount + "</span><br /><span class='emergency'>Please pass back to vendor</span>" + '<input type="button" value="RETURN" id="returnbtn" class="pull_right button_color button answer_go" onclick="App.reset()" /><input type="button" value="Contact AMICA Insurance" id="insbtn" class="push down button_color button answer_go"  />'
 		$(".result").html(html)
 		$(".result-after").html(html_after)
 		$("#starter").text("RESCUED")

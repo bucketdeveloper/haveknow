@@ -17,7 +17,7 @@
 				"question": "What is your favorite color",
 				"answer": "Green"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "tyler",
@@ -36,7 +36,7 @@
 				"question": "What is your favorite color",
 				"answer": "Green"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "sara",
@@ -55,7 +55,7 @@
 				"question": "What is your favorite color",
 				"answer": "Red"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "kevin",
@@ -74,7 +74,7 @@
 				"question": "What is your favorite color",
 				"answer": "Mauve"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "haris",
@@ -93,7 +93,7 @@
 				"question": "What is your favorite color",
 				"answer": "Blue"
 			},
-			"amount": 250
+			"amount": 100
 		}
 	]
 }
