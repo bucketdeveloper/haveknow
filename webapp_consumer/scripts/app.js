@@ -101,6 +101,7 @@ var App = (function (App, $) {
             $(this).siblings().removeClass("selected")
             App.displayModes($(this).find(".contact_name").html())
         })
+        $(".summary_body").sortable()
 	}
 	App.setButtons = function(){
 		$(".take_to_payload, .wallet_option").off("click.take_to_payload").on("click.take_to_payload", function(e){
@@ -135,6 +136,7 @@ var App = (function (App, $) {
             e.preventDefault()
             App.setHaveKnow()
         })
+        $(".summary_body").sortable()
 	}
 	App.displayModes = function(name){
 		var relJSON = App.contactObj.filter(function(a){return a.user==name})[0]
