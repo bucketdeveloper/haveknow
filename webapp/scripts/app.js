@@ -41,9 +41,11 @@ var App = (function (App, $) {
 	}
 	
 	App.doNext = function(){
+
 		var idex = App.global.current
 		App.global.current++
 		return App.methods[idex]()
+		
 	}
 	
 	App.methods = [
@@ -94,12 +96,14 @@ var App = (function (App, $) {
 			$(".result-after").html(html_after)
 		},
 		function(){
-			var val = $("#know_answer").val()
-			if (val == App.global.user.know.answer){
+			App.approve()
+		/*	var val = $("#know_answer").val()
+			if (val.toLowerCase() == App.global.user.know.answer.toLowerCase()){
 				App.approve()
 			} else {
 				App.deny()
 			}
+			*/
 		}
 	]
 	
@@ -112,9 +116,13 @@ var App = (function (App, $) {
 		$(".result").html(html)
 		$(".result-after").html(html_after)
 		$("#starter").text("RESCUED")
-		service.call("GET", {}, "notification", function(){
-			$(".result-after").html(html_success + html_after )
+		service.call("GET", {}, "transfer", function(){
+			service.call("GET", {}, "notification", function(){
+				$(".result-after").html(html_success + html_after )
+				
+			})
 		})
+		
 	}
 	
 	App.back = function(){
