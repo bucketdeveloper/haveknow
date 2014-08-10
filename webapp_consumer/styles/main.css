@@ -30,6 +30,15 @@
         left:0px !important;
     }
 }
+@media all and (max-width:800px) {
+    .ribbon_img{
+		display:none !important;
+	}
+	.ribbon_span{
+		width: calc(100% - 200px) !important;
+		left: 10px !important;
+	}		
+}
 html{
 	font-family:chunk;
 }
@@ -490,7 +499,7 @@ body{
     line-height: 50px;
     text-align: center;
     color: #fff;
-    background: #0072d0;
+    background: #E99054;
     border-radius: 3px 0px 0px 3px;
     float: left;
 }
@@ -658,6 +667,37 @@ body{
 }
 .know_body .hk_button:hover {
     background: #bdbdbd;
+}
+.notification_ribbon {
+	width: 100%;
+	min-height: 70px;
+	background: #e54d42;
+	margin-top: 120px;
+	margin-bottom: -100px;
+	padding-bottom: 20px;
+	display:none;
+}
+.ribbon_img {
+	height: 60px;
+	display: inline-block;
+	position: relative;
+	float: left;
+	top: 5px;
+}
+.ribbon_span {
+	color: #fff;
+	font-family: NewFont;
+	display: inline-block;
+	width: calc(100% - 300px);
+	min-height: 60px;
+	top: 15px;
+	position: relative;
+}
+.hk_button.reset {
+	background: #1abc9c;
+}
+.hk_button.reset:hover {
+	background: #bdbdbd;
 }
 #plus {
 
