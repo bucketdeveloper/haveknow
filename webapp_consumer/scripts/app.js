@@ -153,7 +153,7 @@ var App = (function (App, $) {
 			App.service.call("GET", {}, "summary/reset", function(data){
 				$(".notification_ribbon").fadeOut()
 			})
-		}
+		})
 	}
 	App.displayModes = function(name){
 		var relJSON = App.contactObj.filter(function(a){return a.user==name})[0]
