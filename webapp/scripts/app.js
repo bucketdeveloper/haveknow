@@ -131,8 +131,9 @@ var App = (function (App, $) {
 			
 		},
 		function(){
-			
+			$("#spinner").show()
 			service.call("GET", {}, "transfer", function(json){
+				$("#spinner").hide()
 				App.global.transferjson = json
 				var html = "<span class='transferid'>Your Paypal id is:<br /><br />" + App.global.transferjson.response + "</span>"
 				$(".result").html(html)
