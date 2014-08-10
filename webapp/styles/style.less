@@ -240,7 +240,6 @@ color: #333;
 	border: none;
 	display: inline-block;
 	cursor: pointer;
-	color: #ffffff;
 	font-size: 15px;
 	padding: 10px 24px;
 	font-family: chunk;
@@ -254,6 +253,15 @@ color: #333;
 .button:active {
 	position:relative;
 	top:1px;
+}
+
+.zero {
+	position: relative;
+	top: 6px;
+}
+
+.highlight {
+	background-color: @color-yellow;
 }
 
 .nums {
@@ -273,11 +281,11 @@ color: #333;
 	display: none;
 }
 
-#denybtn {
+#denybtn, #clearbtn {
 	background: #e54d42;
 
 }
-#denybtn:hover {
+#denybtn:hover, #clearbtn:hover {
 	background:@color-lightgrey;
 	color: #fff;
 }

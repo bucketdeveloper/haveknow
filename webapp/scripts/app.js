@@ -25,6 +25,7 @@ var App = (function (App, $) {
 			done: [],
 			keys: [],
 			appjson : null,
+			transferjson: null,
 			current: 0,
 			user: null,
 			haveidex: 0,
@@ -109,21 +110,42 @@ var App = (function (App, $) {
 			'<span input type="text" id="num_8" class="nums">8</span>' + 
 			'<span input type="text" id="num_9" class="nums">9</span></div>' +
 			'<div class="numrow"><span input type="text" id="num_0" class="nums zero">0</span></div>' 
-			var html_after = "Please enter your Paypal pin<br /><input type='password' id='numinput'/><br /><input type='button' id='clearbtn' class='answer_go button button_color' value='CLEAR'/><input type='button' id='numbtn' class='answer_go button button_color' value='GO' onclick='App.doNext()'/>"
+			var html_after = "Please enter your Paypal pin<br /><input type='password' id='numinput'/><br /><input type='button' id='clearbtn' class='answer_go button' value='CLEAR'/><input type='button' id='numbtn' class='answer_go button button_color' value='GO' onclick='App.doNext()'/>"
 			$("#starter").html(html_starter)
 			$(".result").html(html)
 			$(".result-after").html(html_after)
 			$(".nums").off("click.in").on("click.in", function(e){
-				App.global.pin += $(e.target).text()
-				$("#numinput").val(App.global.pin)
+				if (App.global.pin.length <=4){
+					App.global.pin += $(e.target).text()
+					$("#numinput").val(App.global.pin)
+				}
+			}).off("mouseover.in").on("mouseover.in", function(e){
+				$(e.target).toggleClass("highlight")
+			}).off("mouseout.in").on("mouseout.in", function(e){
+				$(e.target).toggleClass("highlight")
 			})
 			$("#clearbtn").off("click.clear").on("click.clear", function(e){
+				$("#numinput").val("")
 				App.global.pin = ""
 			})
 			
 		},
 		function(){
-			App.approve()
+			
+			service.call("GET", {}, "transfer", function(json){
+				App.global.transferjson = json
+				var html = "<span class='transferid'>Your Paypal id is:<br /><br />" + App.global.transferjson.response + "</span>"
+				$(".result").html(html)
+				$(".result-after").html("")
+				
+				setTimeout(function(){
+					service.call("GET", {}, "notification", function(){
+						
+						App.approve()
+					})
+				}, 3000)
+			})
+			
 		/*	var val = $("#know_answer").val()
 			if (val.toLowerCase() == App.global.user.know.answer.toLowerCase()){
 				App.approve()
@@ -143,12 +165,7 @@ var App = (function (App, $) {
 		$(".result").html(html)
 		$(".result-after").html(html_after)
 		$("#starter").text("RESCUED")
-		service.call("GET", {}, "transfer", function(){
-			service.call("GET", {}, "notification", function(){
-				$(".result-after").html(html_success + html_after )
-				
-			})
-		})
+		$(".result-after").html(html_success + html_after )
 		
 	}
 	
