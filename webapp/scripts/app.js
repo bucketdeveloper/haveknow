@@ -88,7 +88,7 @@ var App = (function (App, $) {
 		},
 		function(){
 			var html = App.global.user.know.question + "?"
-			var html_after = '<span class="know_input"><input type="password" id="know_answer" /></span>' + 
+			var html_after = '<br /><br /><span class="know_input"><input type="password" id="know_answer" /></span>' + 
 			'<br /><span class="maskcontain"><input type="checkbox" id="togglemask" class="thecheck" onchange="App.togglemask()"/><span id="togglemasklabel">Unmask</span><input type="button" value="GO" id="unmaskbtn" class="button_color button answer_go" onclick="App.doNext()" /></span>'
 			$(".result").html(html)
 			$(".result-after").html(html_after)
@@ -106,14 +106,14 @@ var App = (function (App, $) {
 	App.approve = function(){
 		var html = ""
 		var html_after = ""
-		var html_before = "<span class='notify'>Your emergency contact list has been notified</span>"
+		var html_success = "<span class='emergency'>Your emergency contact list has been notified</span><br />"
 		html += "You've got cash!<br />"
 		html_after += "<span class='huge center' id='cash'>$" + App.global.user.amount + "</span>" + '<input type="button" value="RETURN" id="returnbtn" class="pull_right button_color button answer_go" onclick="App.reset()" />'
 		$(".result").html(html)
 		$(".result-after").html(html_after)
 		$("#starter").text("RESCUED")
 		service.call("GET", {}, "notification", function(){
-			$(".result-after").html(html_before + html_after)
+			$(".result-after").html(html_success + html_after )
 		})
 	}
 	
