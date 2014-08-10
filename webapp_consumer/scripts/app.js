@@ -230,7 +230,7 @@ var App = (function (App, $) {
             var html = ""
             $(".know_body .knowCont").html("")
             $.each(App.haveKnowObject, function(i){
-                html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+5</span></div>'
+                html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+1</span></div>'
                 html += '<div class="know answer"><span class="knowIcon fa">A</span><span class="knowText">'+App.haveKnowObject[i].a+'</span></div>'
                 $(".know_body .knowCont").append(html)
             })
