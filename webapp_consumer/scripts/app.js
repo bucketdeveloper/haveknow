@@ -173,6 +173,14 @@ var App = (function (App, $) {
             font:"chunk"
         })
         setTimeout(function(){App.updateDial()},300)
+        $(".edit_have").off("click.editKnow").on("click.editKnow", function(e){
+            e.preventDefault()
+            App.editKnows()
+        })
+    }
+    App.editKnows = function(){
+        $(".all_body").hide()
+        $(".know_body").fadeIn()
     }
     App.updateDial = function(){
         var score = 0
