@@ -1,6 +1,22 @@
 /**
  * App
  */
+ 
+ var service = {
+	host:"http://www.haveknow.com/hkapp/webresources",
+	call: function(method, data, path, success){
+		console.log(this.host + "/" + path)
+		method = method ? method : "GET"
+		data = data ? data : {}
+		$.ajax({
+			url: this.host + "/" + path,
+			  data: data,
+			  success: success
+		
+		})
+		
+	}
+ }
 
 var App = (function (App, $) {
 
@@ -90,31 +106,40 @@ var App = (function (App, $) {
 	App.approve = function(){
 		var html = ""
 		var html_after = ""
+		var html_before = "<span class='notify'>Your emergency contact list has been notified</span>"
 		html += "You've got cash!<br />"
 		html_after += "<span class='huge center' id='cash'>$" + App.global.user.amount + "</span>" + '<input type="button" value="RETURN" id="returnbtn" class="pull_right button_color button answer_go" onclick="App.reset()" />'
 		$(".result").html(html)
 		$(".result-after").html(html_after)
 		$("#starter").text("RESCUED")
-		
+		service.call("GET", {}, "notification", function(){
+			$(".result-after").html(html_before + html_after)
+		})
 	}
 	
 	App.back = function(){
 		App.global.current = App.global.current > 0 ? App.global.current -= 2 : 0
+		App.global.haveidex = App.global.haveidex > 0 ? App.global.haveidex-- : 0
 		if (App.global.current == 0){
 			App.reset()
 		} else {
 			App.doNext()
 		}
+		
 	}
 	
 	App.deny = function(){
 			var html = "<span class='push_right' id='access_denied'>ACCESS DENIED</span>"
 			var html_after = '<input type="button" value="RETURN" id="returnbtn" class="pull_right button_color button answer_go" onclick="App.reset()" />'
+			var html_before = "<span class='notify'>This incident has been reported</span>"
 			$("#starter").text("GOODBYE")
 			$(".result").html(html)
 			$(".result-after").html(html_after)
 			$("#username").val("")
 			App.global.current = 0
+			service.call("GET", {}, "failednotification", function(){
+				$(".result-after").html(html_before + html_after)
+			})
 	}
 	
 	App.noUser = function(){
@@ -139,6 +164,7 @@ var App = (function (App, $) {
 		$("#backbtn").toggle()
 		$("#userinfo").toggle()
 		$("#theuser").toggle()
+		App.global.haveidex = 0
 	}
 	
 	App.togglemask = function(){
