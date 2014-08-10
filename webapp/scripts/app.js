@@ -68,7 +68,7 @@ var App = (function (App, $) {
 		function(){
 			$("#starter").text("RESCUING")
 			$("#theuser").text(App.global.user.full_name)
-			var html = '<span  ><img src="' + App.global.user.have[App.global.haveidex] + '" /><input type="button" value="NO, DOES NOT HAVE" id="denybtn" class="button answer_go" onclick="App.deny()" /><input type="button" value="YES,&nbsp;DOES&nbsp;HAVE" id="approvebtn" class="button_color button answer_go" onclick="App.doNext()" /></span></span>'
+			var html = '<span  ><img src="' + App.global.user.have[App.global.haveidex].img + '" /><span class="desccontain"><span class="desc">' + App.global.user.have[App.global.haveidex].desc + '</span><input type="button" value="NO, DOES NOT HAVE" id="denybtn" class="button answer_go" onclick="App.deny()" /><input type="button" value="YES,&nbsp;DOES&nbsp;HAVE" id="approvebtn" class="button_color button answer_go" onclick="App.doNext()" /></span></span></span>'
 			var html_after = '<span >Does the person have this?<br />'
 			$(".result").html(html_after)
 			$(".result-after").html(html)
@@ -77,10 +77,11 @@ var App = (function (App, $) {
 		function(){
 			$("#starter").text("RESCUING")
 			$("#theuser").text(App.global.user.full_name)
-			var html = '<span  ><img src="' + App.global.user.have[App.global.haveidex] + '" /><input type="button" value="NO, DOES NOT HAVE" id="denybtn" class="button answer_go" onclick="App.deny()" /><input type="button" value="YES,&nbsp;DOES&nbsp;HAVE" id="approvebtn" class="button_color button answer_go" onclick="App.doNext()" /></span></span>'
+			var html = '<span  ><img src="' + App.global.user.have[App.global.haveidex].img + '" /><span class="desccontain"><span class="desc">' + App.global.user.have[App.global.haveidex].desc + '</span><input type="button" value="NO, DOES NOT HAVE" id="denybtn" class="button answer_go" onclick="App.deny()" /><input type="button" value="YES,&nbsp;DOES&nbsp;HAVE" id="approvebtn" class="button_color button answer_go" onclick="App.doNext()" /></span></span></span>'
 			var html_after = '<span >Does the person have this?<br />'
 			$(".result").html(html_after)
 			$(".result-after").html(html)
+			App.global.haveidex = 0
 		},
 		function(){
 			var html = "Please pass to the person ..."

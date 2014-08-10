@@ -4,8 +4,14 @@
 			"username": "sri",
 			"full_name": "Sri Gonzalez",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says PAISAN"
+				},
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
@@ -17,8 +23,14 @@
 			"username": "tyler",
 			"full_name": "Tyler McDaniel",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says PAISAN"
+				},
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
@@ -30,8 +42,14 @@
 			"username": "sara",
 			"full_name": "Sara Jarjoura",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says PAISAN"
+				},
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
@@ -43,8 +61,14 @@
 			"username": "kevin",
 			"full_name": "Kevin Holbrook",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says PAISAN"
+				},
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
@@ -56,8 +80,14 @@
 			"username": "haris",
 			"full_name": "Haris Iqbal",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says PAISAN"
+				},
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
