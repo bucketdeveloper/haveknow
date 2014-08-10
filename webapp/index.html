@@ -11,14 +11,27 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="styles/normalize.css">
         <link rel="stylesheet" href="styles/main.css">
+		<link rel="stylesheet/less" type="text/css" href="styles/style.less">
         <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-        <p id="starter">Rescue <span id="plus">+</span></p>
-		<label for="username">Username</label><input type="text" id="username" />
-		<input type="button" value="Go" />
+		<div class="banner"><a href="#!watch" alt="HaveKnow" class="homelink" ><img src="images/haveKnowLogo.png" class="logo"  /></a></div>
+		<div class="content">
+			<div class="content-inner">
+				<input type="button" value="BACK" id="backbtn" class="pull_left button button_color" onclick="App.back()"/><span class="clear"></span>
+				<p id="starter">RESCUE</p>
+				<span id="userinfo"><img src="images/Icon_FieldUsername.png" class="usericon"/><input type="text" id="username" placeholder="Username" />
+				<input type="button" value="Go" id="gobtn" class="button button_color" onclick="App.doNext()"/></span>
+				<span id="theuser"  ></span>
+				<hr />
+				<span class="result" ><span class="huge">?</span></span>
+				<span class="result-after" ></span>
+				<span class="clear" />
+			</div><!-- end content-inner -->
+		</div><!-- end content -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+		<script src="scripts/vendor/less-1.7.3.min.js" type="text/javascript"></script>
         <script src="scripts/app.js" type="text/javascript"></script>
 		<script type="text/javascript">
             $(window).load(function () {
