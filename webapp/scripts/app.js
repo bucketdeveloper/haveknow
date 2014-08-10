@@ -27,7 +27,8 @@ var App = (function (App, $) {
 			appjson : null,
 			current: 0,
 			user: null,
-			haveidex: 0
+			haveidex: 0,
+			pin: ""
 		}
 	
 	}
@@ -95,6 +96,31 @@ var App = (function (App, $) {
 			'<br /><span class="maskcontain"><input type="checkbox" id="togglemask" class="thecheck" onchange="App.togglemask()"/><span id="togglemasklabel">Unmask</span><input type="button" value="GO" id="unmaskbtn" class="button_color button answer_go" onclick="App.doNext()" /></span>'
 			$(".result").html(html)
 			$(".result-after").html(html_after)
+		},
+		function(){
+			var html_starter = "APPROVED"
+			var html = '<div class="numrow"><span input type="text" id="num_1" class="nums">1</span>' + 
+			'<span input type="text" id="num_2" class="nums">2</span>' + 
+			'<span input type="text" id="num_3" class="nums">3</span></div>' + 
+			'<div class="numrow"><span input type="text" id="num_4" class="nums">4</span>' + 
+			'<span input type="text" id="num_5" class="nums">5</span>' + 
+			'<span input type="text" id="num_6" class="nums">6</span></div>' +
+			'<div class="numrow"><span input type="text" id="num_7" class="nums">7</span>' +			
+			'<span input type="text" id="num_8" class="nums">8</span>' + 
+			'<span input type="text" id="num_9" class="nums">9</span></div>' +
+			'<div class="numrow"><span input type="text" id="num_0" class="nums zero">0</span></div>' 
+			var html_after = "Please enter your Paypal pin<br /><input type='password' id='numinput'/><br /><input type='button' id='clearbtn' class='answer_go button button_color' value='CLEAR'/><input type='button' id='numbtn' class='answer_go button button_color' value='GO' onclick='App.doNext()'/>"
+			$("#starter").html(html_starter)
+			$(".result").html(html)
+			$(".result-after").html(html_after)
+			$(".nums").off("click.in").on("click.in", function(e){
+				App.global.pin += $(e.target).text()
+				$("#numinput").val(App.global.pin)
+			})
+			$("#clearbtn").off("click.clear").on("click.clear", function(e){
+				App.global.pin = ""
+			})
+			
 		},
 		function(){
 			App.approve()
