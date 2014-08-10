@@ -109,6 +109,17 @@ input[type=text], input[type=password]{
 	width: @unit-10 * 4;
 	margin: 0 @unit-10 ;
 	display: inline-block;
+	display: inline-block;
+	position: relative;
+	top: 9px;
+}
+input {
+	border-radius: 3px;
+	border: none;
+}
+input#togglemask {
+	position: relative;
+	top: 9px;
 }
 
 #unmaskbtn {
@@ -181,10 +192,10 @@ clear: both;
 }
 
 .result-after img {
-	float: left;
-	max-width: @unit-10 * 20;
-	max-height: @unit-10 *20;
-	margin-right:  @unit-10;
+	max-width: 200px;
+	max-height: 200px;
+	margin-right: 10px;
+	border-radius: 3px;
 
 }
 
@@ -289,7 +300,19 @@ color: #333;
 	background:@color-lightgrey;
 	color: #fff;
 }
-
+.fa.fa-user {
+	display: inline-block;
+	width: 40px;
+	height: 33px;
+	top: 1px;
+	text-align: center;
+	position: relative;
+	line-height: 33px;
+	border-radius: 3px 0px 0px 3px;
+	background: #1abc9c;
+	border: 1px solid #1abc9c;
+	color:#fff;
+}
 .box {
 	width: calc(50% - 30px);
 	display: inline-block;
