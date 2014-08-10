@@ -7,22 +7,22 @@ var App = (function (App, $) {
     /**
      * App.init()
      */
-	App.payout = 200
-	App.maxAmount = 987.47
+	App.payout = 100
+	App.maxAmount = 1000
 	App.contactObj = [{
-		"user":"Eric Cartman",
+		"user":"Sara J.",
 		"text": "true",
 		"phone": "true",
 		"email":"true"
 	},
 	{
-		"user":"Peter Griffin",
+		"user":"Kevin H.",
 		"text": "true",
 		"phone": "false",
 		"email":"false"
 	},
 	{
-		"user":"Marge Simpson",
+		"user":"Haris I.",
 		"text": "false",
 		"phone": "false",
 		"email":"true"
@@ -48,7 +48,16 @@ var App = (function (App, $) {
 		App.displayPayout()
 		App.setButtons()
 		App.displayModes($(".contact_name").eq(0).html())
+		App.service.call("GET",{}, "summary/info", App.handleInfo)
+		App.interval = setInterval(function(){
+			App.service.call("GET",{}, "summary/info", App.handleInfo)
+		}, 1000)
+        $(".summary_body").sortable()
     }
+	App.handleInfo = function(data){
+		if(data.locked == true) $(".notification_ribbon").show()
+		else $(".notification_ribbon").hide()
+	}
 	App.setMenu = function(){
 		$(".user_icon, .user_menu").mouseenter(function(e){
 			e.preventDefault()
@@ -70,6 +79,7 @@ var App = (function (App, $) {
 	App.setWallet = function(){
 		$(".all_body").hide()
 		$(".wallet_body").fadeIn()
+		if(App.interval) clearInterval(App.interval)
         $(window).scrollTop(0)
 		$(".menu_option.hidden_option").removeClass("hidden_option")
 		$(".wallet_option").addClass("hidden_option")
@@ -78,6 +88,7 @@ var App = (function (App, $) {
 		$(".hk_slider").slider({
 			max:App.maxAmount,
 			min:0,
+			step:100,
 			value:App.payout,
 			change: function(event,ui){
 				App.payout = ui.value
@@ -90,6 +101,10 @@ var App = (function (App, $) {
 	App.setSummary = function(){
 		$(".all_body").hide()
 		$(".summary_body").fadeIn()
+		App.service.call("GET",{}, "summary/info", App.handleInfo)
+		App.interval = setInterval(function(){
+			App.service.call("GET",{}, "summary/info", App.handleInfo)
+		}, 1000)
         $(window).scrollTop(0)
 		App.displayPayout()
 		setTimeout(function(){App.displayModes($("contact_name").eq(0).html())},300)
@@ -136,7 +151,12 @@ var App = (function (App, $) {
             e.preventDefault()
             App.setHaveKnow()
         })
-        $(".summary_body").sortable()
+		$(".reset").off("click.reset").on("click.reset", function(e){
+			e.preventDefault()
+			App.service.call("GET", {}, "summary/reset", function(data){
+				$(".notification_ribbon").fadeOut()
+			})
+		})
 	}
 	App.displayModes = function(name){
 		var relJSON = App.contactObj.filter(function(a){return a.user==name})[0]
@@ -151,13 +171,14 @@ var App = (function (App, $) {
     App.setHaveKnow = function(){
         $(".all_body").hide()
         $(".haveKnow_body").fadeIn()
+		if(App.interval) clearInterval(App.interval)
         $(window).scrollTop(0)
         $(".menu_option.hidden_option").removeClass("hidden_option")
 		$(".haveknows_option").addClass("hidden_option")
         var html = ""
         $(".knowCont").html("")
         $.each(App.haveKnowObject, function(i){
-            html = '<div class="know"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+5</span></div>'
+            html = '<div class="know"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+1</span></div>'
             $(".knowCont").append(html)
             if($(".knowText").eq(i).height()<$(".know").height()) $(".knowText").eq(i).css("top", ($(".know").height()-$(".knowText").eq(i).height())/2)
         })
@@ -169,7 +190,7 @@ var App = (function (App, $) {
         })
         $(".pointDial").knob({
             min:0,
-            max:60,
+            max:10,
             readOnly:true,
             angleArc:180,
             angleOffset: -90,
@@ -186,11 +207,12 @@ var App = (function (App, $) {
     App.editKnows = function(){
         $(".all_body").hide()
         $(".know_body").fadeIn()
+		if(App.interval) clearInterval(App.interval)
         $(window).scrollTop(0)
         var html = ""
         $(".know_body .knowCont").html("")
         $.each(App.haveKnowObject, function(i){
-            html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+5</span></div>'
+            html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+1</span></div>'
             html += '<div class="know answer"><span class="knowIcon fa">A</span><span class="knowText">'+App.haveKnowObject[i].a+'</span></div>'
             $(".know_body .knowCont").append(html)
         })
@@ -211,7 +233,7 @@ var App = (function (App, $) {
             var html = ""
             $(".know_body .knowCont").html("")
             $.each(App.haveKnowObject, function(i){
-                html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+5</span></div>'
+                html = '<div class="know question"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+1</span></div>'
                 html += '<div class="know answer"><span class="knowIcon fa">A</span><span class="knowText">'+App.haveKnowObject[i].a+'</span></div>'
                 $(".know_body .knowCont").append(html)
             })
@@ -226,10 +248,25 @@ var App = (function (App, $) {
         $.each($(".haveKnow_body .points"), function(i){
             score += parseInt($(".points").eq(i).html().split("+")[1])    
         })
-        if(score>=30) color = "#ffc140"
-        if(score>=50) color = "#1abc9c"
+        if(score>=5) color = "#ffc140"
+        if(score>=8) color = "#1abc9c"
         $(".pointDial").val(score).trigger("change")
         $(".pointDial").trigger("configure", {"fgColor":color, "inputColor":color})
     }
+	App.service = {
+		host:"http://www.haveknow.com/hkapp/webresources",
+		call: function(method, data, path, success){
+			console.log(this.host + "/" + path)
+			method = method ? method : "GET"
+			data = data ? data : {}
+			$.ajax({
+				url: this.host + "/" + path,
+				data: data,
+				success: success
+		  
+			})
+		  
+		}
+	}		
     return App;
 }(App || {}, jQuery));
