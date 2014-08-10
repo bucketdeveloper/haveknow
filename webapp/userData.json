@@ -1,9 +1,25 @@
 {
 	"users":[
 		{
+			"username": "sri",
+			"full_name": "Sri Gonzalez",
+			"have": [
+				"images/tattoo.jpg",
+				"images/headshot.jpg"
+			],
+			"know": {
+				"question": "What is your favorite color",
+				"answer": "Green"
+			},
+			"amount": 250
+		},
+		{
 			"username": "tyler",
 			"full_name": "Tyler McDaniel",
-			"have": "images/scarimg.png",
+			"have": [
+				"images/tattoo.jpg",
+				"images/headshot.jpg"
+			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Green"
@@ -13,7 +29,10 @@
 		{
 			"username": "sara",
 			"full_name": "Sara Jarjoura",
-			"have": "images/scarimg.png",
+			"have": [
+				"images/tattoo.jpg",
+				"images/headshot.jpg"
+			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Red"
@@ -23,7 +42,10 @@
 		{
 			"username": "kevin",
 			"full_name": "Kevin Holbrook",
-			"have": "images/scarimg.png",
+			"have": [
+				"images/tattoo.jpg",
+				"images/headshot.jpg"
+			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Mauve"
@@ -33,7 +55,10 @@
 		{
 			"username": "haris",
 			"full_name": "Haris Iqbal",
-			"have": "images/scarimg.png",
+			"have": [
+				"images/tattoo.jpg",
+				"images/headshot.jpg"
+			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Blue"

@@ -10,20 +10,21 @@ var App = (function (App, $) {
 			keys: [],
 			appjson : null,
 			current: 0,
-			user: null
+			user: null,
+			haveidex: 0
 		}
 	
 	}
 	
 	App.init = function(){
 		App.global = App.global()
-		$.when($.get("userData.json")).then(function(json){
+		$.get("userData.json", function(json){
 			App.global.appjson = json
 		})
+
 	}
 	
 	App.doNext = function(){
-		
 		var idex = App.global.current
 		App.global.current++
 		return App.methods[idex]()
@@ -49,7 +50,16 @@ var App = (function (App, $) {
 		function(){
 			$("#starter").text("RESCUING")
 			$("#theuser").text(App.global.user.full_name)
-			var html = '<span  ><img src="' + App.global.user.have + '" /><input type="button" value="NO, DOES NOT HAVE" id="denybtn" class="button answer_go" onclick="App.deny()" /><input type="button" value="YES,&nbsp;DOES&nbsp;HAVE" id="approvebtn" class="button_color button answer_go" onclick="App.doNext()" /></span></span>'
+			var html = '<span  ><img src="' + App.global.user.have[App.global.haveidex] + '" /><input type="button" value="NO, DOES NOT HAVE" id="denybtn" class="button answer_go" onclick="App.deny()" /><input type="button" value="YES,&nbsp;DOES&nbsp;HAVE" id="approvebtn" class="button_color button answer_go" onclick="App.doNext()" /></span></span>'
+			var html_after = '<span >Does the person have this?<br />'
+			$(".result").html(html_after)
+			$(".result-after").html(html)
+			App.global.haveidex++
+		},
+		function(){
+			$("#starter").text("RESCUING")
+			$("#theuser").text(App.global.user.full_name)
+			var html = '<span  ><img src="' + App.global.user.have[App.global.haveidex] + '" /><input type="button" value="NO, DOES NOT HAVE" id="denybtn" class="button answer_go" onclick="App.deny()" /><input type="button" value="YES,&nbsp;DOES&nbsp;HAVE" id="approvebtn" class="button_color button answer_go" onclick="App.doNext()" /></span></span>'
 			var html_after = '<span >Does the person have this?<br />'
 			$(".result").html(html_after)
 			$(".result-after").html(html)
