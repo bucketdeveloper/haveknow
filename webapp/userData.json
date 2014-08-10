@@ -5,12 +5,12 @@
 			"full_name": "Sri Gonzalez",
 			"have": [
 				{
-				"img": "images/tattoo.jpg",
-				"desc": "Tattoo down the side, says PAISAN"
-				},
-				{
 				"img": "images/headshot.jpg",
 				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
 				}
 			],
 			"know": {
@@ -24,12 +24,12 @@
 			"full_name": "Tyler McDaniel",
 			"have": [
 				{
-				"img": "images/tattoo.jpg",
-				"desc": "Tattoo down the side, says PAISAN"
-				},
-				{
 				"img": "images/headshot.jpg",
 				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
 				}
 			],
 			"know": {
@@ -43,12 +43,12 @@
 			"full_name": "Sara Jarjoura",
 			"have": [
 				{
-				"img": "images/tattoo.jpg",
-				"desc": "Tattoo down the side, says PAISAN"
-				},
-				{
 				"img": "images/headshot.jpg",
 				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
 				}
 			],
 			"know": {
@@ -61,13 +61,13 @@
 			"username": "kevin",
 			"full_name": "Kevin Holbrook",
 			"have": [
-				{
-				"img": "images/tattoo.jpg",
-				"desc": "Tattoo down the side, says PAISAN"
-				},
-				{
+			{
 				"img": "images/headshot.jpg",
 				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
 				}
 			],
 			"know": {
@@ -81,12 +81,12 @@
 			"full_name": "Haris Iqbal",
 			"have": [
 				{
-				"img": "images/tattoo.jpg",
-				"desc": "Tattoo down the side, says PAISAN"
-				},
-				{
 				"img": "images/headshot.jpg",
 				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
 				}
 			],
 			"know": {
