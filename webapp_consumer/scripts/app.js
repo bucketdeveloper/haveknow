@@ -10,19 +10,19 @@ var App = (function (App, $) {
 	App.payout = 100
 	App.maxAmount = 1000
 	App.contactObj = [{
-		"user":"Sara Jarjoura",
+		"user":"Sara J.",
 		"text": "true",
 		"phone": "true",
 		"email":"true"
 	},
 	{
-		"user":"Kevin Holbrook",
+		"user":"Kevin H.",
 		"text": "true",
 		"phone": "false",
 		"email":"false"
 	},
 	{
-		"user":"Haris Iqbal",
+		"user":"Haris I.",
 		"text": "false",
 		"phone": "false",
 		"email":"true"
