@@ -7,7 +7,7 @@ var App = (function (App, $) {
     /**
      * App.init()
      */
-	App.payout = 200
+	App.payout = 100
 	App.maxAmount = 1000
 	App.contactObj = [{
 		"user":"Eric Cartman",
@@ -87,6 +87,7 @@ var App = (function (App, $) {
 		$(".hk_slider").slider({
 			max:App.maxAmount,
 			min:0,
+			step:100,
 			value:App.payout,
 			change: function(event,ui){
 				App.payout = ui.value
