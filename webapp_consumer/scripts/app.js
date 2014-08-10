@@ -150,8 +150,9 @@ var App = (function (App, $) {
         $(".menu_option.hidden_option").removeClass("hidden_option")
 		$(".haveknows_option").addClass("hidden_option")
         var html = ""
+        $(".knowCont").html("")
         $.each(App.haveKnowObject, function(i){
-            html = '<div class="know"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints">+5</span></div>'
+            html = '<div class="know"><span class="knowIcon fa fa-question"></span><span class="knowText">'+App.haveKnowObject[i].q+'</span><span class="knowPoints points">+5</span></div>'
             $(".knowCont").append(html)
             if($(".knowText").eq(i).height()<$(".know").height()) $(".knowText").eq(i).css("top", ($(".know").height()-$(".knowText").eq(i).height())/2)
         })
@@ -161,7 +162,28 @@ var App = (function (App, $) {
                 if($(".knowText").eq(i).height()<$(".know").height()) $(".knowText").eq(i).css("top", ($(".know").height()-$(".knowText").eq(i).height())/2)
             })
         })
-        
+        $(".pointDial").knob({
+            min:0,
+            max:60,
+            readOnly:true,
+            angleArc:180,
+            angleOffset: -90,
+            width:"90%",
+            fgColor:"#ffc140",
+            font:"chunk"
+        })
+        setTimeout(function(){App.updateDial()},300)
+    }
+    App.updateDial = function(){
+        var score = 0
+        var color = "#e54d42"
+        $.each($(".points"), function(i){
+            score += parseInt($(".points").eq(i).html().split("+")[1])    
+        })
+        if(score>=30) color = "#ffc140"
+        if(score>=50) color = "#1abc9c"
+        $(".pointDial").val(score).trigger("change")
+        $(".pointDial").trigger("configure", {"fgColor":color, "inputColor":color})
     }
     return App;
 }(App || {}, jQuery));
