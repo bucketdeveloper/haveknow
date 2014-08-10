@@ -4,66 +4,96 @@
 			"username": "sri",
 			"full_name": "Sri Gonzalez",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Green"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "tyler",
 			"full_name": "Tyler McDaniel",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Green"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "sara",
 			"full_name": "Sara Jarjoura",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Red"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "kevin",
 			"full_name": "Kevin Holbrook",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+			{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Mauve"
 			},
-			"amount": 250
+			"amount": 100
 		},
 		{
 			"username": "haris",
 			"full_name": "Haris Iqbal",
 			"have": [
-				"images/tattoo.jpg",
-				"images/headshot.jpg"
+				{
+				"img": "images/headshot.jpg",
+				"desc": "Headshot"
+				},
+				{
+				"img": "images/tattoo.jpg",
+				"desc": "Tattoo down the side, says &quot;PAISAN&quot;"
+				}
 			],
 			"know": {
 				"question": "What is your favorite color",
 				"answer": "Blue"
 			},
-			"amount": 250
+			"amount": 100
 		}
 	]
 }
