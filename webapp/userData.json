@@ -1,0 +1,16 @@
+{
+	"questions":{
+		"full_name":"What is your full name?",
+		"have":"What do you have that proves your identity?"
+	},
+	"user":{
+		"username": "tyler",
+		"full_name": "Tyler McDaniel",
+		"have": "images/scarimg.png",
+		"know": {
+			"question": "What is your favorite color",
+			"answer": "Green"
+		},
+		"amount": 250
+	}
+}
